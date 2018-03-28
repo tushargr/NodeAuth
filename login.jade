@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title Register
+    link(rel='stylesheet', href='css/style.css')
+  body
+    .form
+      ul.tab-group
+        li.tab
+          a(href='http://localhost:8080') Sign Up
+        li.tab.active
+          a(href='http://localhost:8080/login.html') Log In
+      #login
+        h1 Log in
+        ul.messages
+          if message
+            li.alert #{message}
+        ul.errors
+          if errors
+            for error in errors
+              li.alert.alert-danger #{error}
+        form(action='/login', method='post' ,enctype='multipart/form-data')
+          .field-wrap
+            label
+              | Email Address
+              span.req *
+            input(type='email',name='email')
+          .field-wrap
+            label
+              | Password
+              span.req *
+            input(type='password',name='password')
+          button.button.button-block(type='submit') Log In
+    // /form

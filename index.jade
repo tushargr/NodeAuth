@@ -1,0 +1,56 @@
+doctype html
+html(lang='en')
+  head
+    title Register
+    link(rel='stylesheet', href='css/style.css')
+  body
+    .form
+      ul.tab-group
+        li.tab.active
+          a(href='http://localhost:8080') Sign Up
+        li.tab
+          a(href='http://localhost:8080/login.html') Log In
+      #signup
+        h1 Sign Up for Free
+        ul.errors
+          if errors
+            for error in errors
+              li.alert.alert-danger #{error}  
+               
+        form(action='/register', method='post',enctype='multipart/form-data')
+          .top-row
+            .field-wrap
+              label
+                | First Name
+                span.req *
+              input(type='text', name='firstname')
+            .field-wrap
+              label
+                | Last Name
+                span.req *
+              input(type='text', name='lastname')
+          .field-wrap
+            label
+              | Email Address
+              span.req *
+            input(type='email', name='email')
+          .field-wrap
+            label
+              | Set A Password
+              span.req *
+            input(type='password', name='password1')
+          .field-wrap
+            label
+              | Retype your password
+              span.req *
+            input(type='password', name='password2')
+          .field-wrap
+            label
+              | Choose a Profile Image
+              span.req
+            br
+            br
+            input(name='profileimage', type='file')
+          br
+          button.button.button-block(type='submit') Get Started
+    // /form
